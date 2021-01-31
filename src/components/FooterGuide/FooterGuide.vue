@@ -1,18 +1,18 @@
 <template>
   <ul class="footer-guide">
-    <li @click="goWhere('msite')">
+    <li @click="goWhere('/msite')">
       <span class="iconfont icon-waimai" :class="{on:'msite'===path}"></span>
       <p>首页</p>
     </li>
-    <li @click="goWhere('search')">
+    <li @click="goWhere('/search')">
       <span class="iconfont icon-search2" :class="{on:'search'===path}"></span>
       <p>搜索</p>
     </li>
-    <li @click="goWhere('order')">
+    <li @click="goWhere('/order')">
       <span class="iconfont icon-dingdan" :class="{on:'order'===path}"></span>
       <p>订单</p>
     </li>
-    <li @click="goWhere('profile')">
+    <li @click="goWhere('/profile')">
       <span class="iconfont icon-geren" :class="{on:'profile'===path}"></span>
       <p>我的</p>
     </li>
@@ -27,7 +27,12 @@
     },
     methods:{
       goWhere(path){
-        this.$router.replace(path)
+        //如果是请求的同样的地址 会报错
+        if (path !== this.$route.path){
+          this.$router.push(path)
+        }else {
+          window.location.href = path;
+        }
       }
     },
     computed:{
@@ -53,6 +58,7 @@
   bottom 0
   width: 100%;
   height 50px
+  background-color: #fff;
   &>li
     margin-top 10px
     width: 25%;

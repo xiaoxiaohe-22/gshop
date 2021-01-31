@@ -5,6 +5,7 @@ const postcss = px2rem({
 })
 module.exports={
     lintOnSave:false,
+
     css: { // 添加postcss配置
         loaderOptions: {
             postcss: {
@@ -14,4 +15,26 @@ module.exports={
             }
         }
     },
+
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:4000',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '',
+                }
+            }
+
+        }
+    },
+
+    pluginOptions: {
+      i18n: {
+        locale: 'zh_CN',
+        fallbackLocale: 'zh_CN',
+        localeDir: 'locales',
+        enableInSFC: false
+      }
+    }
 }

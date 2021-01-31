@@ -5,24 +5,35 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "axios": "^0.21.1",
+    "core-js": "^2.6.12",
     "lib-flexible": "^0.3.2",
+    "lodash": "^4.17.20",
+    "mint-ui": "^2.2.13",
     "postcss-px2rem": "^0.3.0",
+    "qs": "^6.9.6",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
+    "swiper": "^5.2.1",
+    "vee-validate": "^2.0.0-rc.25",
     "vue": "^2.6.10",
-    "vue-router": "^3.5.0"
+    "vue-i18n": "^8.17.3",
+    "vue-router": "^3.5.0",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue-cli-plugin-i18n": "~1.0.1",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
@@ -35,7 +46,9 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "off",
+      "no-debugger": "off",
+      "no-unused-vars": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
